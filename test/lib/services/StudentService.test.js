@@ -14,4 +14,13 @@ describe("Unit Tests for StudentService class", () => {
             ])
         );
     });
+    test("Get the emails of all students with certification, we should only have the emails of students with certification", () => {
+        const students = Reader.readJsonFile("students.json");
+        const condition = true;
+        const emailsWithCertification = StudentService.filterByCertification(students, condition);
+        expect(emailsWithCertification).toContain("Todd@visualpartnership.xyz"); // This email has certification
+        expect(emailsWithCertification).toContain("Sexton@visualpartnership.xyz"); // This email has certification
+        expect(emailsWithCertification).toContain("Sharlene@visualpartnership.xyz"); // This email has certification
+        //expect(emailsWithCertification).toContain("Camacho@visualpartnership.xyz"); // This email hasn't certification
+    });
 });
