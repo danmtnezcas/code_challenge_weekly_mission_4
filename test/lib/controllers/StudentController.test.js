@@ -12,4 +12,12 @@ describe("Unit Tests for StudentController class", () => {
             ])
         );
     });
+    test("Get the emails of all students with certification, we should only have the emails of students with certification", () => {
+        const condition = true;
+        const emailsWithCertification = StudentController.filterByCertification(condition);
+        expect(emailsWithCertification).toContain("Todd@visualpartnership.xyz"); // This email has certification
+        expect(emailsWithCertification).toContain("Sexton@visualpartnership.xyz"); // This email has certification
+        expect(emailsWithCertification).toContain("Sharlene@visualpartnership.xyz"); // This email has certification
+        //expect(emailsWithCertification).toContain("Camacho@visualpartnership.xyz"); // This email hasn't certification
+    });
 });
