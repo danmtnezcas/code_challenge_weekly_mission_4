@@ -20,4 +20,11 @@ describe("Unit Tests for StudentController class", () => {
         expect(emailsWithCertification).toContain("Sharlene@visualpartnership.xyz"); // This email has certification
         //expect(emailsWithCertification).toContain("Camacho@visualpartnership.xyz"); // This email hasn't certification
     });
+    test("Get the students list with credits greater than a condition, we should only have the students from student.json with credits greater than a condition", () => {
+        const credits = 500;
+        const studentsWithCreditsGreaterThan = StudentController.filterByCredits(credits);
+        expect(studentsWithCreditsGreaterThan).toContain("Warren"); // This student has enough credits
+        expect(studentsWithCreditsGreaterThan).toContain("Lucinda"); // This student has enough credits
+        //expect(studentsWithCreditsGreaterThan).toContain("Fuentes"); // This student doesn't have enough credits
+    });
 });
