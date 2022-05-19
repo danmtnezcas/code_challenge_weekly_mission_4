@@ -27,12 +27,8 @@ describe("Unit Tests for StudentService class", () => {
         const studentsList = Reader.readJsonFile("students.json");
         const credits = 500;
         const studentsWithCreditsGreaterThan = StudentService.filterByCredits(studentsList, credits);
-        expect(studentsWithCreditsGreaterThan).toEqual(
-            expect.arrayContaining([
-                expect.objectContaining({"name": "Warren", "credits": 508}), // This student has enough credits
-                expect.objectContaining({"name": "Lucinda", "credits": 677}), // This student has enough creditsjson
-                //expect.objectContaining({"name": "Fuentes", "credits": 210}), // This student doesn't have enough credits
-            ])
-        );
+        expect(studentsWithCreditsGreaterThan).toContain("Warren"); // This student has enough credits
+        expect(studentsWithCreditsGreaterThan).toContain("Lucinda"); // This student has enough credits
+        //expect(studentsWithCreditsGreaterThan).toContain("Fuentes"); // This student doesn't have enough credits
     });
 });
