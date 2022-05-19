@@ -6,7 +6,8 @@
   "scripts": {
     "test": "jest",
     "linter": "eslint .",
-    "linter-fix": "eslint . --fix"
+    "linter-fix": "eslint . --fix",
+    "server": "node ./lib/server.js"
   },
   "author": "",
   "license": "ISC",
